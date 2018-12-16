@@ -32,7 +32,7 @@ router.get('/:id', (req,res,next) => {
 
 // ListAll
 router.get('/', (req,res,next) => {
-   Personne.findAll()
+   Personne.findAll({include:['cadeaus']})
        .then((personne) => res.json(personne))
        .catch((err) => res.status(500).json(err))
 });
